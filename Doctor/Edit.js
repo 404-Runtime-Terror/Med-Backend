@@ -67,7 +67,7 @@ router.get("/", async (req, res) => {
         
         // Flag variable
         var flag;
-
+        console.log("working");
         // to get the paitent list doctor have
         const data = await fetchData.Getkey(client, "Hackthon", "DocData", id);
         console.log(data)
