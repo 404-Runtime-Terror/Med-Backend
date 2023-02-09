@@ -14,18 +14,32 @@ const client = new MongoClient(process.env.DB_URL, {
 //get request
 router.get("/", async (req, res) => {
     try {
-        console.log(req.query.username)
         id = req.query.userID;
+        flag = true;
         const data = await fetchData.GetData(client,"Hackthon","PatientData",id);
+        console.log("working")
+        console.log(data)
+        
         data.map(e=>{
-            e.prescription = encryption.decrypt({password:e.prescription,iv:e.iv});
+            if(e.prescription === null)
+            {
+                flag = false;
+            }
+            else{
+                e.prescription = encryption.decrypt({password:e.prescription,iv:e.iv});
+            }
 
         })
-        data.map(e=>{
-            delete(e.iv);
-        })
-        console.log(data)
-        res.json(data);
+        if (flag){
+            data.map(e=>{
+                delete(e.iv);
+            })
+            console.log(data)
+            res.json(data);
+        }
+        else{
+            res.json({flag: flag});
+        }
     }
     catch (error) {
         console.error(error);
