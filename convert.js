@@ -26,6 +26,9 @@ router.get("/", async (req, res) => {
             if(e._id.toString()===userID)
             {
                 name = e.name;
+                age = e.age;
+                dateofbirth = e.dateofbirth;
+                bloodgroup = e.bloodgroup;
                 flag = true;
             }
         })
