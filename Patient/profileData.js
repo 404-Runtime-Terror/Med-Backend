@@ -15,19 +15,22 @@ const client = new MongoClient(process.env.DB_URL, {
 router.get("/", async (req, res) => {
     try {
         id = req.query.userID;
+        flag = false;
         await client.connect();
         const db = client.db("Hackthon");
-        const collection = await db.collection("DocData").aggregate().toArray();
+        const collection = await db.collection("AccountData").aggregate().toArray();
+        const AddCollection = await db.collection("AccountData");
         collection.find(e=>{
             if(e._id.toString()===id)
             {
-                console.log(e.keys)
-                res.json({keys: e.keys});
-            }else{
-                res.json({keys:false});
+                flag = true;
+                res.json({flag: flag,age: age, dateofbirth: dateofbirth, allergies: allergy, bloodgroup: bloodgroup});
+            }
+            else{
+                res.json({flag: flag});
             }
         })
-    
+        
     }
     catch (error) {
         console.error(error);
