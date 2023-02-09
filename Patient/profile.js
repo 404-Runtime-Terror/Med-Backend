@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
             }
         })
         
-        res.json({flag: flag});
+        res.json({flag: flag,age: age, dateofbirth: dateofbirth, allergies: allergy, bloodgroup: bloodgroup});
     }
     catch (error) {
         console.error(error);
