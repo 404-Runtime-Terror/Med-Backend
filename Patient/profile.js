@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
             if(e._id.toString()===id)
             {
                 flag = true;
-               AddCollection.updateMany(
+               AddCollection.updateOne(
                      { _id: e._id },
                      {$set : {age: age, dateofbirth: dateofbirth, allergies: allergy, bloodgroup: bloodgroup}})
             }
