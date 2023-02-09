@@ -15,9 +15,7 @@ const client = new MongoClient(process.env.DB_URL, {
 router.get("/", async (req, res) => {
     try {
         console.log(req.query.username)
-        username = req.query.username;
-        const id = await fetchData.GetID(client,"Hackthon","AccountData","MohitRaut05");
-        
+        id = req.query.userID;
         const data = await fetchData.GetData(client,"Hackthon","PatientData",id);
         data.map(e=>{
             e.prescription = encryption.decrypt({password:e.prescription,iv:e.iv});

@@ -76,6 +76,10 @@ router.get("/", async (req, res) => {
           name: name,
           password: EnPassword,
           otp: null,
+          dateofbirth: null,
+          bloodgroup: null,
+          age: null,
+          allergies: null,
         },
         (err) => {
           if (err) {
