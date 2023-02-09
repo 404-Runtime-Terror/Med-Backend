@@ -19,15 +19,19 @@ router.get("/", async (req, res) => {
         await client.connect();
         const db = client.db("Hackthon");
         const collection = await db.collection("AccountData").aggregate().toArray();
-        const AddCollection = await db.collection("AccountData");
         collection.find(e=>{
+            console.log(e._id.toString(),id)
             if(e._id.toString()===id)
             {
+                age = e.age;
+                dateofbirth = e.dateofbirth;
+                allergy = e.allergies;
+                bloodgroup = e.bloodgroup;
                 flag = true;
                 res.json({flag: flag,age: age, dateofbirth: dateofbirth, allergies: allergy, bloodgroup: bloodgroup});
             }
             else{
-                res.json({flag: flag});
+                // res.json({flag: flag});
             }
         })
         

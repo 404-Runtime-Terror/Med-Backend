@@ -21,8 +21,8 @@ router.get("/", async (req, res) => {
         collection.find(e=>{
             if(e._id.toString()===id)
             {
-                console.log(e.keys)
-                res.json({keys: e.keys});
+                console.log(e.key)
+                res.json({keys: e.key});
             }else{
                 res.json({keys:false});
             }
