@@ -23,12 +23,13 @@ router.get("/", async (req, res) => {
             console.log(e._id.toString(),id)
             if(e._id.toString()===id)
             {
+                Name = e.name;
                 age = e.age;
                 dateofbirth = e.dateofbirth;
                 allergy = e.allergies;
                 bloodgroup = e.bloodgroup;
                 flag = true;
-                res.json({flag: flag,age: age, dateofbirth: dateofbirth, allergies: allergy, bloodgroup: bloodgroup});
+                res.json({flag: flag,age: age, dateofbirth: dateofbirth, allergies: allergy, bloodgroup: bloodgroup,name:Name});
             }
             else{
                 // res.json({flag: flag});
