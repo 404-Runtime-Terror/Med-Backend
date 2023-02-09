@@ -25,7 +25,7 @@ router.get("/", async (req, res) => {
         collection.find(e=>{
             if(e._id.toString()===userID)
             {
-                name = e.name
+                name = e.name;
                 age = e.age;
                 dateofbirth = e.dateofbirth;
                 bloodgroup = e.bloodgroup;
@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
         })
         if(flag)
         {
-            return res.status(200).json({name : name});
+            return res.status(200).json({name : name, age : age, dateofbirth : dateofbirth, bloodgroup : bloodgroup, flag : flag});
         }
         else
         {
