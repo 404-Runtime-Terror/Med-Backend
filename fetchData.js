@@ -22,6 +22,7 @@ async function GetData(client, DBname, collectionName, userID) {
     // get _id from database
     collection.find((e) => {
         if (e._id.toString() === userID.toString()) {
+            console.log(e);
             data = e.data;
         }
     });

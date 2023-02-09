@@ -10,6 +10,7 @@ const Dsignup = require("./Doctor/signup");
 const Dlogin = require("./Doctor/login");
 const GetData = require("./Doctor/getData");
 const Edit = require("./Doctor/Edit");
+const viewData = require("./Doctor/viewData");
 
 const convert = require("./convert");
 const PORT = process.env.PORT || 5000;
@@ -31,6 +32,7 @@ app.use("/doctor/signup", Dsignup);
 app.use("/doctor/login", Dlogin);
 app.use("/doctor/getData", GetData);
 app.use("/doctor/Edit", Edit);
+app.use("/doctor/viewData", viewData);
 
 app.use("/convert", convert);
 
