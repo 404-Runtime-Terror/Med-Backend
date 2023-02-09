@@ -4,6 +4,7 @@ const Psignup = require("./Patient/signup");
 const Plogin = require("./Patient/login");
 const PatientData = require("./Patient/patientData");
 const returnData = require("./Patient/returnData");
+const profile = require("./Patient/profile");
 
 const Dsignup = require("./Doctor/signup");
 const Dlogin = require("./Doctor/login");
@@ -24,6 +25,7 @@ app.use("/patient/signup", Psignup);
 app.use("/patient/login", Plogin);
 app.use("/patient/patientData", PatientData);
 app.use("/patient/returnData", returnData);
+app.use("/patient/profile", profile);
 
 app.use("/doctor/signup", Dsignup);
 app.use("/doctor/login", Dlogin);
