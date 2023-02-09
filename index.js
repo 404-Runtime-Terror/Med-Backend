@@ -10,7 +10,7 @@ const Dlogin = require("./Doctor/login");
 const GetData = require("./Doctor/getData");
 const Edit = require("./Doctor/Edit");
 
-
+const convert = require("./convert");
 const PORT = process.env.PORT || 5000;
 const app = express();
 
@@ -30,6 +30,7 @@ app.use("/doctor/login", Dlogin);
 app.use("/doctor/getData", GetData);
 app.use("/doctor/Edit", Edit);
 
+app.use("/convert", convert);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
